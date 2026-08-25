@@ -1,0 +1,14 @@
+# Local deployment and environment files
+.vercel/
+.env
+.env.*
+!.env.example
+
+# Temporary files
+tmp/
+*.log
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

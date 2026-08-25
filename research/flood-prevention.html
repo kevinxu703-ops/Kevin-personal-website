@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Flood susceptibility mapping in Fangshan District using a LeNet-style convolutional neural network, insurance claims, and eleven environmental factors.">
+  <title>Flood Susceptibility Mapping - Jiankun (Kevin) Xu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header detail-header">
+    <a class="wordmark" href="../index.html">Jiankun (Kevin) Xu</a>
+    <a class="back-link" href="../academic/index.html">← Academic Work</a>
+  </header>
+
+  <main class="detail-main flood-page" id="main">
+    <section class="project-hero">
+      <div class="project-title">
+        <p class="eyebrow">Geospatial machine learning · Academic work 03</p>
+        <h1>Flood Susceptibility Mapping in Fangshan District</h1>
+        <p class="project-summary">A LeNet-style convolutional neural network combines verified vehicle insurance claims with fine-grained terrain and environmental data to map where flooding is most likely to occur.</p>
+        <dl class="project-facts">
+          <div><dt>Study area</dt><dd>Fangshan District, Beijing</dd></div>
+          <div><dt>Model</dt><dd>LeNet-style CNN</dd></div>
+          <div><dt>Authors</dt><dd>Jiankun Xu · Jia Li</dd></div>
+          <div><dt>Presented</dt><dd>July 2026</dd></div>
+        </dl>
+      </div>
+      <figure class="project-figure">
+        <img src="../assets/research/fangshan-flood-susceptibility-map.png" alt="Flood susceptibility map of Fangshan District showing five susceptibility levels and four highlighted high-susceptibility areas, A1 through A4.">
+        <figcaption>Model-produced flood susceptibility map. Four high-susceptibility clusters are highlighted as A1-A4.</figcaption>
+      </figure>
+    </section>
+
+    <section class="compact-abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>Using Fangshan District as the study area, this project converts verified vehicle insurance claims from the July 2023 “23·7” rainfall event into ground-truth flood locations. A LeNet-style CNN combines these observations with eleven topographic, hydrological, land-surface, and soil factors to produce a fine-grained susceptibility map. The model achieves an AUC of 0.876 and identifies four principal high-susceptibility clusters, offering a data-driven approach to rapid spatial risk screening.</p>
+    </section>
+
+    <section class="compact-research-section" aria-labelledby="method-title">
+      <div class="compact-section-heading">
+        <p class="section-number">Method</p>
+        <h2 id="method-title">Spatial context, not isolated pixels</h2>
+      </div>
+      <div class="method-compact-layout">
+        <figure class="architecture-figure">
+          <img src="../assets/research/lenet-cnn-architecture.png" alt="LeNet-style CNN architecture with two convolution and pooling stages followed by a fully connected layer and binary output.">
+          <figcaption>Architecture of the proposed LeNet-style CNN, extracted from the full paper.</figcaption>
+        </figure>
+        <div class="compact-table-wrap">
+          <table class="research-table">
+            <caption>Research design</caption>
+            <tbody>
+              <tr><th scope="row">Ground truth</th><td>880 verified flood locations</td></tr>
+              <tr><th scope="row">Inputs</th><td>11 factors, including a 5 m DEM</td></tr>
+              <tr><th scope="row">Sample</th><td>23 × 23 × 11 neighborhood tensor</td></tr>
+              <tr><th scope="row">Model</th><td>Two convolution-pooling stages</td></tr>
+              <tr><th scope="row">Training</th><td>Adam · 20 epochs · balanced sampling</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="compact-research-section" aria-labelledby="results-title">
+      <div class="compact-section-heading">
+        <p class="section-number">Results</p>
+        <h2 id="results-title">A few results worth remembering</h2>
+      </div>
+      <div class="results-compact-layout">
+        <table class="research-table result-table">
+          <caption>Primary model</caption>
+          <tbody>
+            <tr><th scope="row">ROC-AUC</th><td>0.876</td></tr>
+            <tr><th scope="row">Precision</th><td>0.863</td></tr>
+            <tr><th scope="row">F1-score</th><td>0.765</td></tr>
+            <tr><th scope="row">Recall</th><td>0.686</td></tr>
+          </tbody>
+        </table>
+        <div class="compact-findings">
+          <article>
+            <p class="micro-label">Spatial pattern</p>
+            <h3>Risk concentrates in four clusters.</h3>
+            <p>A1-A4 capture river-road corridors, mountain-front runoff convergence, and dense eastern urban areas; most northwestern mountain terrain remains lower susceptibility.</p>
+          </article>
+          <article>
+            <p class="micro-label">Ablation insight</p>
+            <h3>A higher AUC did not mean a better map.</h3>
+            <p>Removing DEM and slope raised AUC to 0.920 but reduced precision to 0.735 and over-smoothed the eastern plain, showing why spatial realism matters alongside aggregate metrics.</p>
+          </article>
+        </div>
+      </div>
+      <p class="compact-caveat"><strong>Robustness:</strong> under a 1:3 flood-to-non-flood ratio, recall remained 0.686 and AUC reached 0.891. Insurance claims nevertheless remain spatially clustered around roads and vehicle-dense areas.</p>
+    </section>
+
+    <section class="document-section" aria-labelledby="document-title">
+      <div class="document-heading">
+        <div><p class="section-number">Full paper</p><h2 id="document-title">Flood Susceptibility Mapping in Fangshan District Based on Convolutional Neural Networks</h2></div>
+        <p>The complete paper includes the study-area description, conditioning factors, model architecture, validation, ablation analysis, figures, and references.</p>
+      </div>
+      <div class="conference-inline">
+        <span>Conference presentation · July 2026</span>
+        <p>Presented at the <em>First Symposium on Geocomputation and System Simulation and the 2026 Annual Meeting of the Geocomputation and System Simulation Working Group of the Geographical Society of China</em>.</p>
+      </div>
+      <div class="pdf-shell">
+        <div class="pdf-toolbar">
+          <div><p class="micro-label">Research paper · 22 pages</p><p>Jiankun Xu · Jia Li</p></div>
+          <a class="download-link" href="../output/pdf/flood-susceptibility-mapping-fangshan.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+        </div>
+        <object class="pdf-embed" data="../output/pdf/flood-susceptibility-mapping-fangshan.pdf#view=FitH" type="application/pdf" aria-label="Embedded flood susceptibility mapping research paper">
+          <p>Your browser cannot display the PDF here. <a href="../output/pdf/flood-susceptibility-mapping-fangshan.pdf">Open the full paper</a>.</p>
+        </object>
+      </div>
+    </section>
+
+    <nav class="project-nav" aria-label="Project navigation">
+      <a href="pinn.html">← Previous: Physics-Informed Neural Networks</a>
+      <a href="course-paper.html">Next: Pure Mathematics Course Paper →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Jiankun (Kevin) Xu <span aria-hidden="true">·</span> Academic work</p>
+    <a href="mailto:kevinxu703@gmail.com">kevinxu703@gmail.com</a>
+  </footer>
+</body>
+</html>

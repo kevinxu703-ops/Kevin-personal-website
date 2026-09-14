@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An expository pure mathematics course paper by Jiankun Kevin Xu.">
-  <title>Pure Mathematics Course Paper - Jiankun (Kevin) Xu</title>
+  <meta name="description" content="Jiankun Kevin Xu's expository paper on Newman's proof of the Hardy-Ramanujan asymptotic formula for the integer partition function.">
+  <title>Ramanujan's Partition Formula - Jiankun (Kevin) Xu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;display=swap" rel="stylesheet">
@@ -17,46 +17,95 @@
     <a class="back-link" href="../academic/index.html">← Academic Work</a>
   </header>
 
-  <main class="detail-main" id="main">
+  <main class="detail-main course-page" id="main">
     <section class="project-hero">
       <div class="project-title">
-        <p class="eyebrow">Expository mathematics · Academic work 04</p>
-        <h1>Pure Mathematics Course Paper</h1>
-        <p class="project-summary">An expository paper developed through a mathematics course, focused on reconstructing and communicating existing ideas and proofs rather than claiming an original research result.</p>
+        <p class="eyebrow">Pioneer Academics · Expository mathematics</p>
+        <h1>A Detailed Discussion of Ramanujan's Partition Formula</h1>
+        <p class="project-summary">An expository paper that reconstructs D. J. Newman's proof of the Hardy-Ramanujan asymptotic for the partition function, expanding its analytic steps for motivated high-school readers.</p>
         <dl class="project-facts">
           <div><dt>Type</dt><dd>Expository course paper</dd></div>
-          <div><dt>Topic</dt><dd>To be added</dd></div>
-          <div><dt>Course</dt><dd>To be added</dd></div>
-          <div><dt>Status</dt><dd>Paper ready to replace placeholder</dd></div>
+          <div><dt>Course</dt><dd>Pioneer Academics · Partitions</dd></div>
+          <div><dt>Course scope</dt><dd>Integer and plane partitions</dd></div>
+          <div><dt>Paper focus</dt><dd>Circle method and asymptotics</dd></div>
         </dl>
       </div>
-      <div class="image-placeholder project-visual" role="img" aria-label="Placeholder for a theorem, diagram, or handwritten proof from the course paper">
-        <span>Paper visual</span>
-        <small>Theorem, diagram, or handwritten proof</small>
-      </div>
+      <figure class="project-figure course-figure">
+        <img src="../assets/research/ramanujan-partition-visual.png" alt="A mathematical pathway from a Ferrers diagram of the partition 8 equals 4 plus 2 plus 1 plus 1, through Euler's generating function and the circle method, to Ramanujan's asymptotic formula.">
+        <figcaption>From a discrete partition to an analytic estimate: the conceptual path developed in the paper.</figcaption>
+      </figure>
     </section>
 
     <section class="project-body" aria-labelledby="overview-title">
       <p class="project-body-label">Introduction</p>
       <div class="project-body-copy">
-        <h2 id="overview-title">Understanding by reconstructing</h2>
-        <p>The eventual introduction can explain the course context, the mathematical topic, why it was selected, and how the paper organizes the relevant definitions, results, and proofs.</p>
-        <p>Its label remains explicit: this is substantial mathematical writing and learning, presented as exposition rather than as a new theorem.</p>
+        <h2 id="overview-title">A simple counting problem with an unexpected analytic life</h2>
+        <p>An integer partition writes a positive integer as an unordered sum of positive integers. The definition is elementary, yet the number of partitions grows with remarkable speed. Euler encoded the entire sequence in an infinite product, opening a route from combinatorics into complex analysis and number theory.</p>
+        <p>In 1918, Hardy and Ramanujan found a celebrated asymptotic formula for the partition function <em>p</em>(<em>n</em>). Its importance extends beyond numerical approximation: it is an early demonstration of how analytic structure can reveal the behavior of a discrete counting problem.</p>
+      </div>
+    </section>
+
+    <section class="compact-research-section" aria-labelledby="purpose-title">
+      <div class="compact-section-heading">
+        <p class="section-number">Expository purpose</p>
+        <h2 id="purpose-title">Making a compressed proof readable</h2>
+      </div>
+      <div class="course-purpose">
+        <p>Newman's proof is elegant and concise, but many estimates and transitions are left implicit. This paper reconstructs those intermediate arguments, introduces the required tools when they first appear, and explains the role each one plays.</p>
+        <p>The exposition is written for readers who have encountered basic calculus and complex numbers. Definitions, remarks, and step-by-step estimates are included so that a motivated high-school reader can follow the architecture of the proof without treating its advanced techniques as a black box.</p>
+      </div>
+    </section>
+
+    <section class="compact-research-section" aria-labelledby="pathway-title">
+      <div class="compact-section-heading">
+        <p class="section-number">Proof architecture</p>
+        <h2 id="pathway-title">From counting to contour integration</h2>
+      </div>
+      <div class="proof-pathway">
+        <article>
+          <p class="micro-label">01 · Encode</p>
+          <h3>Generating function</h3>
+          <p>Euler's infinite product stores every value of <em>p</em>(<em>n</em>) as a coefficient of one analytic function.</p>
+        </article>
+        <article>
+          <p class="micro-label">02 · Extract</p>
+          <h3>Complex integral</h3>
+          <p>Cauchy's coefficient formula turns the desired coefficient into an integral around a contour.</p>
+        </article>
+        <article>
+          <p class="micro-label">03 · Estimate</p>
+          <h3>Dominant contribution</h3>
+          <p>The contour is separated into regions, isolating the neighborhood that controls the asymptotic growth.</p>
+        </article>
+        <article>
+          <p class="micro-label">04 · Evaluate</p>
+          <h3>Asymptotic formula</h3>
+          <p>Gaussian integration, Stirling's approximation, and dominated convergence lead to Ramanujan's formula.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-body" aria-labelledby="significance-title">
+      <p class="project-body-label">Significance</p>
+      <div class="project-body-copy">
+        <h2 id="significance-title">A bridge between discrete and continuous mathematics</h2>
+        <p>The argument shows that an elementary combinatorial object can be governed by complex-analytic behavior. The same perspective later supports refinements such as Rademacher's convergent expansion and connects partition theory with restricted partitions, <em>q</em>-series, and modular forms.</p>
+        <p>The appendix compares exact values of <em>p</em>(<em>n</em>) with Ramanujan's estimate for <em>n</em> up to 50 and 500, making the improving numerical accuracy visible alongside the proof.</p>
       </div>
     </section>
 
     <section class="document-section" aria-labelledby="document-title">
       <div class="document-heading">
-        <div><p class="section-number">Course document</p><h2 id="document-title">Expository paper</h2></div>
-        <p>The embedded PDF reserves space for the finished paper. Its title, course information, and topic can be updated when the source material is added.</p>
+        <div><p class="section-number">Full paper</p><h2 id="document-title">A Detailed Discussion for the Proof of Ramanujan's Partition Formula</h2></div>
+        <p>The complete 27-page paper develops the necessary preliminaries, reconstructs Newman's argument, discusses later refinements, and includes numerical comparisons in the appendix.</p>
       </div>
       <div class="pdf-shell">
         <div class="pdf-toolbar">
-          <div><p class="micro-label">Embedded PDF</p><p>Pure mathematics course paper placeholder</p></div>
-          <a class="download-link" href="../output/pdf/course-paper-placeholder.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+          <div><p class="micro-label">Expository paper · 27 pages</p><p>Jiankun Xu · Pioneer Academics</p></div>
+          <a class="download-link" href="../output/pdf/ramanujan-partition-formula.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
         </div>
-        <object class="pdf-embed" data="../output/pdf/course-paper-placeholder.pdf#view=FitH" type="application/pdf" aria-label="Embedded course paper PDF">
-          <p>Your browser cannot display the PDF here. <a href="../output/pdf/course-paper-placeholder.pdf">Open the PDF</a>.</p>
+        <object class="pdf-embed" data="../output/pdf/ramanujan-partition-formula.pdf#view=FitH" type="application/pdf" aria-label="Embedded paper on Ramanujan's partition formula">
+          <p>Your browser cannot display the PDF here. <a href="../output/pdf/ramanujan-partition-formula.pdf">Open the full paper</a>.</p>
         </object>
       </div>
     </section>

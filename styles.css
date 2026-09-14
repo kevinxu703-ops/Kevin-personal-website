@@ -640,6 +640,67 @@ main {
   font-size: clamp(3.2rem, 6.2vw, 6.15rem);
 }
 
+.course-page .project-title h1 {
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+}
+
+.course-figure img {
+  background: var(--paper);
+}
+
+.course-purpose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 7vw, 7rem);
+  max-width: 980px;
+  margin-left: auto;
+}
+
+.course-purpose p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.proof-pathway {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.proof-pathway article {
+  min-height: 300px;
+  padding: 1.5rem 1.4rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.proof-pathway article:first-child {
+  padding-left: 0;
+}
+
+.proof-pathway article + article {
+  border-left: 1px solid var(--line);
+}
+
+.proof-pathway article:last-child {
+  padding-right: 0;
+}
+
+.proof-pathway h3 {
+  margin: 2rem 0 1rem;
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 2.3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.proof-pathway article > p:last-child {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
 .conference-note {
   display: grid;
   grid-template-columns: minmax(180px, 0.36fr) minmax(0, 1fr);
@@ -1205,6 +1266,23 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .course-purpose {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-pathway {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-pathway article:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .proof-pathway article:nth-child(even) {
+    padding-right: 0;
+  }
+
   .method-grid article:nth-child(n) {
     min-height: auto;
     padding: 1.5rem 0 2.5rem;
@@ -1259,6 +1337,16 @@ main {
 
   .compact-findings {
     grid-template-columns: 1fr;
+  }
+
+  .proof-pathway {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-pathway article:nth-child(n) {
+    min-height: auto;
+    padding: 1.5rem 0 2.5rem;
+    border-left: 0;
   }
 
   .compact-item:nth-child(2),

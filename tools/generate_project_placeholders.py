@@ -31,13 +31,6 @@ PROJECTS = [
         "question": "How can models inform more resilient flood-prevention decisions?",
         "sections": ["Context and research question", "Data and modeling approach", "Risk analysis and interventions", "Discussion and references"],
     },
-    {
-        "filename": "course-paper-placeholder.pdf",
-        "title": "Pure Mathematics Course Paper",
-        "field": "EXPOSITORY MATHEMATICS / COURSE PAPER",
-        "question": "How can an existing mathematical idea be reconstructed with clarity?",
-        "sections": ["Course context and topic", "Definitions and background", "Main results and proofs", "Reflection and references"],
-    },
 ]
 
 

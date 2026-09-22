@@ -9,8 +9,13 @@ const source = path.join(root, "公理：数学史与哲学", "英文版本");
 const output = path.join(root, "writing", "axioms");
 const assets = path.join(root, "assets", "vendor", "katex");
 const articles = [
-  { file: "00-introduction.md", url: "0.html", label: "Introduction", next: "1-1.html" },
-  { file: "1-1.md", url: "1-1.html", label: "Article 1.1 · From Infinity to Axioms", previous: "0.html" },
+  { file: "00-introduction.md", url: "0.html", number: "00", label: "Introduction" },
+  { file: "1-1.md", url: "1-1.html", number: "1.1", label: "Article 1.1 · From Infinity to Axioms" },
+  { file: "1-2.md", url: "1-2.html", number: "1.2", label: "Article 1.2 · From Infinity to Axioms" },
+  { file: "1-3.md", url: "1-3.html", number: "1.3", label: "Article 1.3 · From Infinity to Axioms" },
+  { file: "1-4.md", url: "1-4.html", number: "1.4", label: "Article 1.4 · From Infinity to Axioms" },
+  { file: "1-5.md", url: "1-5.html", number: "1.5", label: "Article 1.5 · From Infinity to Axioms" },
+  { file: "1-6.md", url: "1-6.html", number: "1.6", label: "Article 1.6 · From Infinity to Axioms" },
 ];
 
 const escapeHtml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -84,7 +89,7 @@ const template = `<!doctype html>
 </html>
 `;
 
-function articlePage(article, markdown) {
+function articlePage(article, markdown, previousArticle, nextArticle) {
   const cleaned = markdown.replace(/^<!--[\s\S]*?-->\s*/, "").trim();
   const match = cleaned.match(/^# (.+)\n\n\*(.+)\*\n\n/);
   if (!match) throw new Error(article.file + " needs a title and italic deck.");
@@ -113,11 +118,13 @@ function articlePage(article, markdown) {
     }
   }});
   const rendered = parser.parse(body);
-  const previous = article.previous
-    ? '<a href="' + article.previous + '"><small>Previous</small><span>Introduction</span></a>'
+  const previous = previousArticle
+    ? '<a href="' + previousArticle.url + '"><small>Previous</small><span>' +
+      escapeHtml(previousArticle.number === "00" ? "Introduction" : previousArticle.number + " · " + previousArticle.title) + '</span></a>'
     : '<span class="reader-nav-empty"></span>';
-  const next = article.next
-    ? '<a href="' + article.next + '"><small>Next</small><span>1.1 · Measuring Infinity</span></a>'
+  const next = nextArticle
+    ? '<a href="' + nextArticle.url + '"><small>Next</small><span>' +
+      escapeHtml(nextArticle.number + " · " + nextArticle.title) + '</span></a>'
     : '<span class="reader-nav-empty"></span>';
   const replacements = {
     "@@TITLE@@": escapeHtml(title), "@@DECK@@": escapeHtml(deck),
@@ -132,8 +139,15 @@ await mkdir(assets, { recursive: true });
 await cp(path.join(root, "tools", "axioms-build", "node_modules", "katex", "dist", "fonts"), path.join(assets, "fonts"), { recursive: true });
 await cp(path.join(root, "tools", "axioms-build", "node_modules", "katex", "dist", "katex.min.css"), path.join(assets, "katex.min.css"));
 await cp(path.join(root, "tools", "axioms-build", "node_modules", "katex", "LICENSE"), path.join(assets, "LICENSE.txt"));
+const pages = [];
 for (const article of articles) {
-  const markdown = await readFile(path.join(source, article.file), "utf8");
-  await writeFile(path.join(output, article.url), articlePage(article, markdown), "utf8");
+  const markdown = (await readFile(path.join(source, article.file), "utf8")).replace(/\r\n/g, "\n");
+  const title = markdown.match(/^# ([^\n]+)/m)?.[1];
+  if (!title) throw new Error(article.file + " needs a Markdown title.");
+  pages.push({ ...article, markdown, title });
+}
+for (const [index, article] of pages.entries()) {
+  const html = articlePage(article, article.markdown, pages[index - 1], pages[index + 1]);
+  await writeFile(path.join(output, article.url), html, "utf8");
   console.log("Built", path.join("writing", "axioms", article.url));
 }

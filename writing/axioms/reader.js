@@ -39,12 +39,16 @@ if (sidebar && mobileToggle && toc) {
     for (const link of links) {
       const selected = link.getAttribute("href") === "#" + active.id;
       link.classList.toggle("is-active", selected);
+      link.closest("li")?.classList.toggle("is-current", selected);
       if (selected) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     }
     for (const group of toc.querySelectorAll(".toc-group")) {
       const parent = group.querySelector("button.toc-parent");
-      if (parent) parent.classList.toggle("is-active", parent.dataset.target === active.id);
+      const current = parent?.dataset.target === active.id ||
+        [...group.querySelectorAll(".toc-children a")].some((link) => link.getAttribute("href") === "#" + active.id) ||
+        group.querySelector(".toc-link")?.getAttribute("href") === "#" + active.id;
+      group.classList.toggle("is-current", Boolean(current));
     }
   };
   let scheduled = false;

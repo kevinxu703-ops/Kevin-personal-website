@@ -24,6 +24,7 @@
 3. 系列目录位于 writing/axioms/index.html，公开名称为 Axioms，副标题为 Essays on the History and Philosophy of Mathematics。仅已发表篇目给文章链接，未来篇目暂不承诺标题和顺序。
 4. 单篇文章只用稳定编号网址，例如 writing/axioms/1-1.html。英文标题可修改而无需更改网址。导言可用 writing/axioms/0.html。页面含所属卷、日期、返回目录、上一篇/下一篇、注释和参考资料。
 5. thinking/index.html 仅放交叉链接，保留其独立内容方向。
+6. 所有内页页眉保留首页的六项主导航，并在独立一行显示返回上一级的链接。手机端导航排成三列两行；生成新文章时沿用 build.mjs 的页眉模板，不手动改生成后的 HTML。
 
 ## 本站生成方式
 

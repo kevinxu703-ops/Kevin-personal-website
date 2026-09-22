@@ -31,7 +31,7 @@
 .reader-article { min-width: 0; }
 .reader-article-header { padding: 1.8rem 0 3.3rem; border-bottom: 1px solid var(--line); }
 .reader-article-header .eyebrow { margin: 0 0 1.6rem; }
-.reader-article-header h1 { max-width: 730px; margin: 0; font: 400 clamp(3.5rem, 6vw, 5.8rem)/.97 var(--serif); letter-spacing: -.045em; }
+.reader-article-header h1 { max-width: 730px; margin: 0; font: 400 clamp(3.1rem, 5vw, 4.8rem)/.97 var(--serif); letter-spacing: -.045em; }
 .reader-deck { margin: 1.5rem 0 0; color: var(--green); font: 400 clamp(1.25rem, 2vw, 1.65rem)/1.35 var(--serif); }
 .reader-prose { padding: 2.5rem 0 1.5rem; font: 400 1.15rem/1.82 var(--serif); }
 .reader-prose > p:first-child { font-size: 1.33rem; line-height: 1.65; }
@@ -54,7 +54,7 @@
 .reader-pagination small { color: var(--green); font: .65rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .reader-pagination a:hover span { color: var(--green); }
 .axioms-hero { max-width: 850px; padding: 6.7rem 0 5rem; }
-.axioms-hero h1 { margin: 1.1rem 0 1.4rem; font: 400 clamp(5rem, 11vw, 9rem)/.88 var(--serif); letter-spacing: -.07em; }
+.axioms-hero h1 { margin: 1.1rem 0 1.4rem; font: 400 clamp(4.5rem, 9vw, 7rem)/.88 var(--serif); letter-spacing: -.07em; }
 .axioms-hero .series-subtitle { margin: 0; color: var(--green); font: 400 clamp(1.45rem, 3vw, 2.1rem)/1.25 var(--serif); }
 .axioms-hero .series-description { max-width: 600px; margin: 2rem 0 0; color: var(--muted); font: 1.06rem/1.75 var(--sans); }
 .axioms-path { border-top: 1px solid var(--line); padding: 3.5rem 0; }
@@ -78,10 +78,9 @@
   .reader-article-header { padding-top: 0; }
 }
 @media (max-width: 560px) {
-  .reader-header { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
   .reader-header .wordmark { font-size: 1.1rem; white-space: normal; }
   .reader-topline { padding: 1.5rem 0 2rem; }
-  .reader-article-header h1 { font-size: clamp(3.2rem, 14vw, 4.6rem); }
+  .reader-article-header h1 { font-size: clamp(2.8rem, 11vw, 3.8rem); }
   .reader-prose { font-size: 1.08rem; }
   .reader-prose > p:first-child { font-size: 1.22rem; }
   .axioms-entry { grid-template-columns: 3.5rem 1fr; }

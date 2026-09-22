@@ -94,12 +94,12 @@ main {
 }
 
 .hero {
-  min-height: 680px;
+  min-height: 560px;
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.55fr);
   gap: clamp(3rem, 8vw, 7.5rem);
   align-items: end;
-  padding: 8rem 0 6.2rem;
+  padding: 5.5rem 0 5rem;
 }
 
 .eyebrow,
@@ -119,10 +119,10 @@ main {
 }
 
 .hero h1 {
-  max-width: 830px;
+  max-width: 780px;
   margin: 1.25rem 0 1.7rem;
   font-family: var(--serif);
-  font-size: clamp(3.5rem, 7.5vw, 7rem);
+  font-size: clamp(3.2rem, 5.5vw, 5.4rem);
   font-weight: 400;
   letter-spacing: -0.055em;
   line-height: 0.96;
@@ -531,6 +531,24 @@ main {
 .detail-header {
   width: min(1180px, calc(100% - 64px));
   margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem 2rem;
+  padding: 1.25rem 0 0.8rem;
+}
+
+.detail-header .site-nav {
+  justify-content: flex-end;
+}
+
+.detail-header .back-link {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border-left: 2px solid var(--green);
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  color: var(--green);
+  font-weight: 600;
 }
 
 .detail-main {
@@ -560,7 +578,7 @@ main {
 .collection-hero h1 {
   margin: 1rem 0 1.6rem;
   font-family: var(--serif);
-  font-size: clamp(3.5rem, 7vw, 6.8rem);
+  font-size: clamp(3.2rem, 5.5vw, 5.4rem);
   font-weight: 400;
   letter-spacing: -0.055em;
   line-height: 0.96;
@@ -1205,6 +1223,16 @@ main {
     padding: 1.3rem 0;
   }
 
+  .site-header.detail-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .detail-header .site-nav {
+    justify-content: flex-start;
+  }
+
   .site-nav {
     justify-content: flex-end;
     flex-wrap: wrap;
@@ -1215,7 +1243,7 @@ main {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 4rem;
-    padding: 6rem 0 5rem;
+    padding: 4.5rem 0 4.5rem;
   }
 
   .current-question {
@@ -1319,8 +1347,15 @@ main {
     margin-top: 1rem;
   }
 
+  .detail-header .site-nav {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    margin-top: 0;
+    gap: 0.45rem clamp(1rem, 4vw, 1.5rem);
+  }
+
   .hero h1 {
-    font-size: clamp(3rem, 16vw, 4.6rem);
+    font-size: clamp(2.8rem, 11.5vw, 3.8rem);
   }
 
   .research-list,

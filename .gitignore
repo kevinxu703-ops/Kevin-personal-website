@@ -12,3 +12,10 @@ tmp/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Unpublished Axioms source and translation drafts
+/公理：数学史与哲学/中文版md/
+/公理：数学史与哲学/英文版本/_drafts/
+
+# Local dependencies for the article generator
+/tools/axioms-build/node_modules/

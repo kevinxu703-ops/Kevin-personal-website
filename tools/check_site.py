@@ -22,7 +22,7 @@ class ReferenceParser(HTMLParser):
 
 def main() -> None:
     missing: list[tuple[Path, str]] = []
-    pages = sorted(ROOT.rglob("*.html"))
+    pages = sorted(page for page in ROOT.rglob("*.html") if "node_modules" not in page.parts)
 
     for page in pages:
         parser = ReferenceParser()

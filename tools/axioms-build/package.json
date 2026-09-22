@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "katex": "0.18.7",
+    "marked": "17.0.5",
+    "marked-katex-extension": "5.1.12"
+  }
+}

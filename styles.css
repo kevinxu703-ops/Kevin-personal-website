@@ -467,6 +467,25 @@ main {
   min-height: 360px;
 }
 
+.writing-cover {
+  display: block;
+  grid-column: span 4;
+  align-self: start;
+}
+
+.writing-cover img,
+.series-card-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.series-card-cover {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
 .beyond-layout {
   display: grid;
   grid-template-columns: minmax(380px, 1.25fr) minmax(280px, 0.75fr);
@@ -1420,7 +1439,8 @@ main {
   }
 
   .writing-entry,
-  .book-placeholder {
+  .book-placeholder,
+  .writing-cover {
     grid-column: span 6;
   }
 
@@ -1484,7 +1504,8 @@ main {
   }
 
   .writing-entry,
-  .book-placeholder {
+  .book-placeholder,
+  .writing-cover {
     margin-bottom: 2.5rem;
   }
 

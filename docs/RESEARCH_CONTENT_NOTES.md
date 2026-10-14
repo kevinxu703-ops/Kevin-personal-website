@@ -1,6 +1,6 @@
 # Research page content notes
 
-Updated 2026-10-14.
+Updated 2026-10-15.
 
 ## Analytic drum
 
@@ -10,7 +10,7 @@ Updated 2026-10-14.
 - The abstract is transcribed from PDF page 2; only HTML typography is added.
 - The numerical summary uses PDF pages 31–35: seven forward candidates and a restricted three-coefficient fitting experiment with synthetic data from the same finite model.
 - Preserve the distinction between a spectral criterion and a general shape-recovery theorem. Neither general uniqueness/stability nor certified convergence of computed zeros is claimed.
-- The hero figure is intentionally left blank at the author's request.
+- The hero figure was initially left blank at the author's request. The empty frame was removed during the author-approved application presentation cleanup on 2026-10-15. Preserve the research text and paper; restore a figure only when an actual visual is ready.
 
 ## PINN manuscripts
 
@@ -33,5 +33,5 @@ Updated 2026-10-14.
 
 - The three uploaded PDFs are author-supplied originals, not placeholder documents.
 - Existing placeholder PDFs are no longer linked from these two pages; preserve unrelated resources.
-- Keep the six global navigation links, return-to-parent link and previous/next project navigation on each research page.
+- Keep global navigation consistent with the homepage, plus the return-to-parent link and previous/next project navigation. The application presentation version uses four global links: About, Academic Work, Writing, and Resume.
 - Check paper links, image completeness, native PDF previews and narrow-screen layout before publishing changes.

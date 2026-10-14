@@ -16,6 +16,11 @@ const articles = [
   { file: "1-4.md", url: "1-4.html", number: "1.4", label: "Article 1.4 · From Infinity to Axioms" },
   { file: "1-5.md", url: "1-5.html", number: "1.5", label: "Article 1.5 · From Infinity to Axioms" },
   { file: "1-6.md", url: "1-6.html", number: "1.6", label: "Article 1.6 · From Infinity to Axioms" },
+  { file: "2-1.md", url: "2-1.html", number: "2.1", label: "Article 2.1 · At the Limits of Axioms" },
+  { file: "2-2.md", url: "2-2.html", number: "2.2", label: "Article 2.2 · At the Limits of Axioms" },
+  { file: "2-3.md", url: "2-3.html", number: "2.3", label: "Article 2.3 · At the Limits of Axioms" },
+  { file: "2-4.md", url: "2-4.html", number: "2.4", label: "Article 2.4 · At the Limits of Axioms" },
+  { file: "2-5.md", url: "2-5.html", number: "2.5", label: "Article 2.5 · At the Limits of Axioms" },
 ];
 
 const escapeHtml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
@@ -83,7 +88,7 @@ const template = `<!doctype html>
         <header class="reader-article-header">
           <p class="eyebrow">@@LABEL@@</p>
           <h1>@@TITLE@@</h1>
-          <p class="reader-deck">@@DECK@@</p>
+          <p class="reader-deck">@@DECK@@</p>@@CONTINUATION@@
         </header>
         <div class="reader-prose">@@BODY@@</div>
         <nav class="reader-pagination" aria-label="Article sequence">@@PREVIOUS@@@@NEXT@@</nav>
@@ -100,7 +105,10 @@ function articlePage(article, markdown, previousArticle, nextArticle) {
   const match = cleaned.match(/^# (.+)\n\n\*(.+)\*\n\n/);
   if (!match) throw new Error(article.file + " needs a title and italic deck.");
   const [ , title, deck ] = match;
-  const body = cleaned.slice(match[0].length);
+  let body = cleaned.slice(match[0].length);
+  const continuationMarker = "**To be continued**\n\n";
+  const continued = body.startsWith(continuationMarker);
+  if (continued) body = body.slice(continuationMarker.length);
   const headings = [...body.matchAll(/^(#{2,3}) (.+)$/gm)].map((item) => ({
     level: item[1].length, text: item[2], id: slug(item[2])
   }));
@@ -108,7 +116,7 @@ function articlePage(article, markdown, previousArticle, nextArticle) {
     throw new Error(article.file + " has duplicate heading IDs.");
   }
   let headingIndex = 0;
-  const parser = new Marked(markedKatex({ throwOnError: true, output: "htmlAndMathml" }));
+  const parser = new Marked(markedKatex({ throwOnError: true, output: "htmlAndMathml", nonStandard: true }));
   parser.use({ renderer: {
     heading({ tokens, depth }) {
       const heading = headings[headingIndex++];
@@ -123,7 +131,10 @@ function articlePage(article, markdown, previousArticle, nextArticle) {
         '>' + this.parser.parseInline(tokens) + '</a>';
     }
   }});
-  const rendered = parser.parse(body);
+  const rendered = parser.parse(body).replace(
+    /<table>[\s\S]*?<\/table>/g,
+    (table) => '<div class="reader-table" role="region" aria-label="Scrollable table" tabindex="0">' + table + '</div>'
+  );
   const previous = previousArticle
     ? '<a href="' + previousArticle.url + '"><small>Previous</small><span>' +
       escapeHtml(previousArticle.number === "00" ? "Introduction" : previousArticle.number + " · " + previousArticle.title) + '</span></a>'
@@ -135,6 +146,7 @@ function articlePage(article, markdown, previousArticle, nextArticle) {
   const replacements = {
     "@@TITLE@@": escapeHtml(title), "@@DECK@@": escapeHtml(deck),
     "@@LABEL@@": escapeHtml(article.label), "@@BODY@@": rendered,
+    "@@CONTINUATION@@": continued ? '\n          <p class="reader-continuation">To be continued</p>' : "",
     "@@TOC@@": makeToc(headings), "@@PREVIOUS@@": previous, "@@NEXT@@": next
   };
   return Object.entries(replacements).reduce((html, [key, value]) => html.replaceAll(key, value), template);

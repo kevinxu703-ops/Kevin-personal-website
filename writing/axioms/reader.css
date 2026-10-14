@@ -33,6 +33,14 @@
 .reader-article-header .eyebrow { margin: 0 0 1.6rem; }
 .reader-article-header h1 { max-width: 730px; margin: 0; font: 400 clamp(3.1rem, 5vw, 4.8rem)/.97 var(--serif); letter-spacing: -.045em; }
 .reader-deck { margin: 1.5rem 0 0; color: var(--green); font: 400 clamp(1.25rem, 2vw, 1.65rem)/1.35 var(--serif); }
+.reader-continuation { margin: 1.1rem 0 0; color: var(--green); font: 500 .72rem/1.6 var(--mono); letter-spacing: .07em; }
+.reader-table { max-width: 100%; overflow-x: auto; margin: 1.8rem 0 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.reader-table table { width: 100%; min-width: 26rem; border-collapse: collapse; font: .88rem/1.65 var(--sans); }
+.reader-table th, .reader-table td { padding: .8rem .9rem; vertical-align: top; text-align: left; }
+.reader-table th { color: var(--ink); background: var(--green-soft); font-weight: 600; }
+.reader-table td { border-top: 1px solid var(--line); }
+.reader-table th:first-child, .reader-table td:first-child { padding-left: .65rem; }
+.reader-prose pre { max-width: 100%; overflow-x: auto; padding: 1rem; background: var(--paper-deep); font: .85rem/1.7 var(--mono); }
 .reader-prose { padding: 2.5rem 0 1.5rem; font: 400 1.15rem/1.82 var(--serif); }
 .reader-prose > p:first-child { font-size: 1.33rem; line-height: 1.65; }
 .reader-prose p { margin: 0 0 1.45rem; }
@@ -80,6 +88,7 @@
   .reader-article-header { padding-top: 0; }
 }
 @media (max-width: 560px) {
+  .reader-table::after { content: "Scroll horizontally to read the table"; display: block; position: sticky; left: 0; width: 100%; box-sizing: border-box; padding: .65rem; color: var(--muted); background: var(--paper); font: .65rem/1.5 var(--mono); }
   .reader-header .wordmark { font-size: 1.1rem; white-space: normal; }
   .reader-topline { padding: 1.5rem 0 2rem; }
   .reader-article-header h1 { font-size: clamp(2.8rem, 11vw, 3.8rem); }

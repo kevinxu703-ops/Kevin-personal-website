@@ -1,6 +1,6 @@
 # 《公理：数学史与哲学》：网站设计与持续更新笔记
 
-更新：2026-09-22。英文导言与第一章 1.1–1.6 均已形成正式 Markdown 和独立阅读页。发布状态仍须在每次更新后重新核对。
+更新：2026-10-15。英文导言、第一章 1.1–1.6、第二章 2.1–2.5 已形成正式 Markdown 和独立阅读页。第二章尚未完结。发布状态仍须在每次更新后重新核对。
 
 ## 已确认的方向
 
@@ -13,7 +13,7 @@
 
 ## 当前材料（每次工作前重新核对）
 
-- 2026-09-22 的中文目录含导言、编号 1.1–2.5 的 11 篇正文及三版大纲。正式英文目录现有 00-introduction.md 和 1-1.md 至 1-6.md；第二章尚未处理。中文源文件 1.1_2026-08-14.md 至 1.6_2026-08-14.md 分别对应英文 1-1.md 至 1-6.md。
+- 中文目录现含导言、编号 1.1–2.5 的 11 篇正文及三版大纲。正式英文目录现有 00-introduction.md、1-1.md 至 1-6.md、2-1.md 至 2-5.md。第二章原稿对应关系与数学订正记录见 docs/AXIOMS_CHAPTER_II_NOTES.md。中文原稿不改。
 - 大纲V3_2026-09-14.md 是目前最新的规划。旧导言仍使用较早的分卷描述，翻译前先协调。大纲中的未来篇目不等于已完成或准备公开。
 - 中文草稿目录被 .gitignore 排除，英文 _drafts/ 也被排除。不得用“暂存所有文件”的方式准备发布；逐项选择已确认的英文稿、页面和资源。
 
@@ -28,8 +28,9 @@
 
 ## 本站生成方式
 
-- 正式英文 Markdown 是内容源：公理：数学史与哲学/英文版本/00-introduction.md 和 1-1.md 至 1-6.md。
-- 使用 tools/axioms-build/build.mjs 生成 writing/axioms/0.html 和 1-1.html 至 1-6.html。依赖在 tools/axioms-build/package.json 与 pnpm-lock.yaml 中，先在该目录安装依赖，然后从网站根目录运行 node tools/axioms-build/build.mjs。
+- 正式英文 Markdown 是内容源：公理：数学史与哲学/英文版本/00-introduction.md、1-1.md 至 1-6.md、2-1.md 至 2-5.md。
+- 使用 tools/axioms-build/build.mjs 生成 writing/axioms/0.html、1-1.html 至 1-6.html、2-1.html 至 2-5.html。依赖在 tools/axioms-build/package.json 与 pnpm-lock.yaml 中，先在该目录安装依赖，然后从网站根目录运行 node tools/axioms-build/build.mjs。生成后运行 node tools/axioms-build/check.mjs 检查目录、锚点、前后篇、续写提示与机器示例。
+- 2-5.md 副标题之后保留独立的粗体 To be continued 行，生成器将其放到阅读页副标题下。第二章继续扩展时，按用户要求把续写标记移到适当的末篇。不要创建尚未获准的未来篇目链接。
 - 生成器同时把 KaTeX 的样式和字体复制到 assets/vendor/katex，保证数学公式不依赖外部 CDN。生成的 HTML 和数学静态资源均须提交；依赖目录 node_modules 不提交。
 - 文章标题可在 Markdown 中修改而不改变编号网址。新增文章时在生成器的 articles 清单、系列目录与前后篇导航中登记。首页/列表页只显示已准备公开的内容。
 
@@ -67,6 +68,8 @@
 - 最终英文系列名、卷名和篇名；首批上线篇目；中文原文是否提供外链；预计阅读时间与修订记录是否显示；长篇是否拆分。
 
 ## 发布记录
+
+- 2026-10-15：按用户要求翻译适配第二章 2.1–2.5，英文 Markdown 写入正式英文目录，新增五个纯编号阅读页并接入系列目录和前后篇。2.5 副标题下显示 To be continued，Part II 标为进行中。数学前提、术语和来源的订正记录见 AXIOMS_CHAPTER_II_NOTES.md。中文源稿保持不变，系列末尾 Appendix 仍是本地工作稿。
 
 - 2026-10-15：用户确认统一隐藏未完成内容。首页只保留 About、四项 Academic Work、Axioms 精选和简历；撤下照片占位、More about me 入口、空 Thinking、Margin note 与 Beyond。写作列表只显示 Axioms。About 和 Thinking 的原有直达网址保留，以已确认简介和真实系列链接替换模板，不制造空文章。空的纯数学插图框撤下，研究正文不变。原始首页、About、Thinking、Writing 页面备份位于本地忽略目录 tmp/pre-application-cleanup-2026-10-15/，历史版本亦保留在 Git。恢复栏目须在相应内容准备好后同步更新导航和文章模板。
 

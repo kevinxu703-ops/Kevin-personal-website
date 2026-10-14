@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A project page for Jiankun Kevin Xu's exploration of spectral geometry and the shape of a drum.">
+  <meta name="description" content="Jiankun Xu's research on Wronskian boundary operators, the Dirichlet spectrum of analytic planar domains, and a Neumann-oval case study.">
   <title>Can One Hear the Shape of a Drum? - Jiankun (Kevin) Xu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,49 +25,62 @@
     <a class="back-link" href="../academic/index.html">← Academic Work</a>
   </header>
 
-  <main class="detail-main" id="main">
+  <main class="detail-main research-page" id="main">
     <section class="project-hero">
       <div class="project-title">
-        <p class="eyebrow">Pure mathematics · Project 01</p>
+        <p class="eyebrow">Spectral geometry · Academic work 01</p>
         <h1>Can One Hear the Shape of a Drum?</h1>
-        <p class="project-summary">An exploration of spectral geometry and a deceptively simple question: how much can the frequencies of a domain tell us about its shape?</p>
+        <p class="project-summary">A boundary-operator approach to the vibration frequencies of analytic planar drums, tested through forward spectral calculations and a restricted coefficient-fitting experiment for the Neumann oval.</p>
         <dl class="project-facts">
-          <div><dt>Field</dt><dd>Spectral geometry</dd></div>
-          <div><dt>Status</dt><dd>Research archive in progress</dd></div>
-          <div><dt>Format</dt><dd>Paper, notes, and figures</dd></div>
-          <div><dt>Role</dt><dd>Details to be added</dd></div>
+          <div><dt>Author</dt><dd>Jiankun Xu</dd></div>
+          <div><dt>Supervision</dt><dd>Jian Deng · Lingyun Chang</dd></div>
+          <div><dt>Focus</dt><dd>Analytic planar domains</dd></div>
+          <div><dt>Document</dt><dd>Research report · 2026</dd></div>
         </dl>
       </div>
-      <div class="image-placeholder project-visual" role="img" aria-label="Placeholder for a drum domain diagram, spectrum, or handwritten proof">
-        <span>Research figure</span>
-        <small>Domain, spectrum, or handwritten derivation</small>
-      </div>
+      <div class="image-placeholder project-visual" aria-hidden="true"></div>
     </section>
 
-    <section class="project-body" aria-labelledby="overview-title">
-      <p class="project-body-label">Introduction</p>
-      <div class="project-body-copy">
-        <h2 id="overview-title">Geometry through sound</h2>
-        <p>The project begins with the eigenvalues of the Laplacian and asks what geometric information they encode. This space can later hold the motivation, mathematical background, central arguments, and the moments when intuition changed direction.</p>
-        <p>For now, the page stays deliberately light: the research document below will carry the technical work, while this introduction will eventually make the problem accessible before a reader enters the details.</p>
+    <section class="compact-abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p>The question of whether the Dirichlet spectrum determines the shape of a drum is a central problem in inverse spectral geometry. For a bounded simply connected planar domain <span class="inline-math">Ω ⊂ ℝ²</span> with real-analytic Jordan boundary, we construct an entire family of boundary operators <span class="inline-math"><i>W</i>(<i>λ</i>)</span>, called the Wronskian operators. Its kernel is linearly isomorphic to the corresponding Dirichlet eigenspace, and its regularized determinant vanishes at the Dirichlet eigenvalues. In conformal Fourier coordinates, we derive a representation of <span class="inline-math"><i>W</i>(<i>λ</i>)</span> from the coefficients of the normalized Riemann map. We illustrate the finite construction through a forward spectral calculation and a restricted three-parameter fitting experiment for the Neumann oval with <span class="inline-math"><i>R</i> = 1.8</span>.</p>
+    </section>
+
+    <section class="compact-research-section" aria-labelledby="findings-title">
+      <div class="compact-section-heading">
+        <p class="section-number">Selected findings</p>
+        <h2 id="findings-title">From an operator to a finite computation</h2>
       </div>
+      <div class="compact-findings">
+        <article>
+          <p class="micro-label">Forward calculation</p>
+          <h3>Seven spectral candidates.</h3>
+          <p>Finite matrices are built from Riemann-map coefficients. For the Neumann oval, seven low-frequency candidates stabilize across the tested truncation levels and approach independent conformal Galerkin estimates.</p>
+        </article>
+        <article>
+          <p class="micro-label">Restricted inverse test</p>
+          <h3>Three coefficients, five starting points.</h3>
+          <p>Varying only the first three nonzero coefficients, four of five tested initializations meet the residual criterion. The spectral targets come from the same truncated forward model.</p>
+        </article>
+      </div>
+      <p class="compact-caveat"><strong>Scope:</strong> the report establishes a spectral criterion and a finite computational construction. It does not establish general uniqueness or stability of shape recovery, or certified convergence of computed eigenvalues.</p>
     </section>
 
     <section class="document-section" aria-labelledby="document-title">
       <div class="document-heading">
         <div>
-          <p class="section-number">Project document</p>
-          <h2 id="document-title">Paper &amp; working notes</h2>
+          <p class="section-number">Full paper</p>
+          <h2 id="document-title">On Hearing the Shape of a Two-Dimensional Analytic Drum: A Case Study of the Neumann Oval</h2>
         </div>
-        <p>The embedded PDF is a temporary one-page outline. Replace it with the final paper or research notes while keeping the same filename.</p>
+        <p>The full report develops the boundary operators and regularized determinant, derives finite matrices from conformal data, and presents the Neumann-oval experiments, limitations, and appendices.</p>
       </div>
       <div class="pdf-shell">
         <div class="pdf-toolbar">
-          <div><p class="micro-label">Embedded PDF</p><p>Drum shape research placeholder</p></div>
-          <a class="download-link" href="../output/pdf/drum-shape-placeholder.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+          <div><p class="micro-label">Research report · 49 pages</p><p>Jiankun Xu</p></div>
+          <a class="download-link" href="../output/pdf/analytic-drum-neumann-oval.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
         </div>
-        <object class="pdf-embed" data="../output/pdf/drum-shape-placeholder.pdf#view=FitH" type="application/pdf" aria-label="Embedded drum shape research PDF">
-          <p>Your browser cannot display the PDF here. <a href="../output/pdf/drum-shape-placeholder.pdf">Open the PDF</a>.</p>
+        <object class="pdf-embed" data="../output/pdf/analytic-drum-neumann-oval.pdf#view=FitH" type="application/pdf" aria-label="Embedded research report on analytic drums and the Neumann oval">
+          <p>Your browser cannot display the PDF here. <a href="../output/pdf/analytic-drum-neumann-oval.pdf">Open the full paper</a>.</p>
         </object>
       </div>
     </section>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A project page for Jiankun Kevin Xu's research on physics-informed neural networks.">
+  <meta name="description" content="Two research manuscripts by Jiankun Xu and Lingyun Chang on MC-PINN and the separate effects of bound and mean repair for reaction-diffusion neural networks.">
   <title>Physics-Informed Neural Networks - Jiankun (Kevin) Xu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,46 +25,76 @@
     <a class="back-link" href="../academic/index.html">← Academic Work</a>
   </header>
 
-  <main class="detail-main" id="main">
+  <main class="detail-main research-page" id="main">
     <section class="project-hero">
       <div class="project-title">
-        <p class="eyebrow">Scientific computing · Project 02</p>
+        <p class="eyebrow">Scientific machine learning · Academic work 02</p>
         <h1>Physics-Informed Neural Networks</h1>
-        <p class="project-summary">Exploring how physical laws can become part of a neural network's learning process when approximating solutions to differential equations.</p>
+        <p class="project-summary">Two studies of constraint repair for reaction–diffusion PINNs: a broader MC-PINN workflow and a paired experiment separating bound clipping from mean adjustment after training.</p>
         <dl class="project-facts">
-          <div><dt>Field</dt><dd>Scientific machine learning</dd></div>
-          <div><dt>Status</dt><dd>Research archive in progress</dd></div>
-          <div><dt>Format</dt><dd>Paper, experiments, and figures</dd></div>
-          <div><dt>Role</dt><dd>Details to be added</dd></div>
+          <div><dt>Authors</dt><dd>Jiankun Xu · Lingyun Chang</dd></div>
+          <div><dt>Problem</dt><dd>Stiff heat–species coupling</dd></div>
+          <div><dt>Documents</dt><dd>Two research manuscripts</dd></div>
+          <div><dt>Status</dt><dd>Both under review</dd></div>
         </dl>
+        <nav class="paper-links" aria-label="Papers in this project">
+          <a href="#mc-pinn">01 · MC-PINN study ↓</a>
+          <a href="#bound-mean">02 · Bound and mean steps ↓</a>
+        </nav>
       </div>
-      <div class="image-placeholder project-visual" role="img" aria-label="Placeholder for a neural network architecture, loss curve, or equation">
-        <span>Research figure</span>
-        <small>Network architecture, equation, or experiment</small>
-      </div>
+      <figure class="project-figure">
+        <a href="../assets/research/pinn-bound-mean-repair-results.png" target="_blank" rel="noopener" aria-label="Open the paired repair-step result figure at full size">
+          <img src="../assets/research/pinn-bound-mean-repair-results.png" width="1575" height="741" alt="Four paired-effect bar charts comparing box clipping and mean adjustment over ten seeds. Box clipping reduces upper-bound violation; increases in relative L2 error, PDE residual and coupled-mean invariant error occur in the mean step. Error bars show 95 percent confidence intervals.">
+        </a>
+        <figcaption>Paper 02, Figure 2. Effects of each repair step over ten paired seeds, with 95% confidence intervals. Click to enlarge.</figcaption>
+      </figure>
     </section>
 
-    <section class="project-body" aria-labelledby="overview-title">
-      <p class="project-body-label">Introduction</p>
-      <div class="project-body-copy">
-        <h2 id="overview-title">Learning with physical constraints</h2>
-        <p>Physics-informed neural networks connect approximation with prior structure. Instead of learning only from observed data, a model may also be guided by differential equations, boundary conditions, and other constraints that describe the system.</p>
-        <p>This introduction can later explain the exact equation, architecture, training process, evaluation, and where the method succeeded or failed. Technical evidence will remain in the document below.</p>
-      </div>
-    </section>
-
-    <section class="document-section" aria-labelledby="document-title">
+    <section class="document-section paper-study" id="mc-pinn" aria-labelledby="mc-pinn-title">
       <div class="document-heading">
-        <div><p class="section-number">Project document</p><h2 id="document-title">Paper &amp; experiment notes</h2></div>
-        <p>The embedded PDF reserves the space for the final research report, technical appendix, or selected experimental results.</p>
+        <div>
+          <p class="section-number">Paper 01 · Full study</p>
+          <h2 id="mc-pinn-title">MC-PINN: A Feasibility-Oriented Post-Projection PINN for Stiff Heat–Species Coupling</h2>
+          <p class="paper-status">Under review · <i>Computer Physics Communications</i></p>
+        </div>
+        <p>A Fourier-augmented PINN combines constraint losses, a staged time curriculum, and evaluation-time projection. Ten-seed comparisons across three coupling regimes test when improved feasibility is accompanied by improved accuracy and when the two diverge.</p>
+      </div>
+      <div class="paper-abstract">
+        <h3>Abstract</h3>
+        <p>We propose MC-PINN for stiff heat–species coupled reaction–diffusion, where bound violations and target-mean deviations persist under conventional soft penalties. A Fourier-augmented MLP is trained with bound/mean soft losses; at evaluation, species fields undergo alternating box–target-mean projection with a stiffness-inspired time curriculum. Ten-seed experiments cover one-way stiff coupling, bidirectional exothermic coupling, and a mild negative control. On one-way stiff coupling, MC-PINN attains the lowest Rel. L<sub>2</sub> with zero violation and near-zero projection residual; on bidirectional stiff coupling, constraint residuals remain near zero; on the mild control, Vanilla PINN is more accurate, indicating that projection is most useful under strong stiffness. We further provide a closure-error bound, heuristic physics-gap diagnostics, and a feasibility–residual Pareto analysis.</p>
       </div>
       <div class="pdf-shell">
         <div class="pdf-toolbar">
-          <div><p class="micro-label">Embedded PDF</p><p>PINN research placeholder</p></div>
-          <a class="download-link" href="../output/pdf/pinn-placeholder.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+          <div><p class="micro-label">Research manuscript · 19 pages</p><p>Jiankun Xu · Lingyun Chang</p></div>
+          <a class="download-link" href="../output/pdf/mc-pinn-stiff-heat-species.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
         </div>
-        <object class="pdf-embed" data="../output/pdf/pinn-placeholder.pdf#view=FitH" type="application/pdf" aria-label="Embedded PINN research PDF">
-          <p>Your browser cannot display the PDF here. <a href="../output/pdf/pinn-placeholder.pdf">Open the PDF</a>.</p>
+        <object class="pdf-embed" data="../output/pdf/mc-pinn-stiff-heat-species.pdf#view=FitH" type="application/pdf" aria-label="Embedded MC-PINN manuscript under review at Computer Physics Communications">
+          <p>Your browser cannot display the PDF here. <a href="../output/pdf/mc-pinn-stiff-heat-species.pdf">Open the full MC-PINN manuscript</a>.</p>
+        </object>
+      </div>
+    </section>
+
+    <section class="document-section paper-study" id="bound-mean" aria-labelledby="bound-mean-title">
+      <div class="document-heading">
+        <div>
+          <p class="section-number">Paper 02 · Paired experiment</p>
+          <h2 id="bound-mean-title">Separating the Bound and Mean Steps of Post-Training Repair for Reaction–Diffusion PINNs</h2>
+          <p class="paper-status">Under review · ICMLC 2027</p>
+        </div>
+        <p>This companion study evaluates the same saved networks in three modes: raw output, box clipping alone, and full mean–box repair. Paired comparisons separate the benefit of removing bound violations from the cost of enforcing an approximate mean target.</p>
+      </div>
+      <div class="paper-abstract">
+        <h3>Abstract</h3>
+        <p>Physics-informed neural networks are widely used for reaction–diffusion problems, but exported fields may violate bounds or a prescribed spatial mean. Post-training mean–box projection restores feasibility, yet prior work typically reports one combined before/after comparison and does not separate clipping from mean adjustment. On periodic stiff heat–species reaction–diffusion we run a held-out paired experiment with ten seeds and three evaluation modes: raw output, box clipping alone, and full 60-step ET-MBP. Box clipping removes held-out upper-bound violation from 11.2% to zero without measurable change in Rel. L<sub>2</sub>(<i>c</i>), PDE <i>p</i><sub>95</sub>, or the coupled-mean invariant; measurable costs are confined to the mean step, with Rel. L<sub>2</sub>(<i>c</i>), PDE <i>p</i><sub>95</sub>, and invariant error increasing by (3.05 ± 1.18) × 10<sup>−3</sup>, 0.146 ± 0.052, and 0.018 ± 0.002, respectively. Converged capped-simplex projection reproduces the 60-step values, so the cost reflects the closure target rather than iteration error.</p>
+      </div>
+      <p class="paper-scope"><strong>Scope:</strong> these findings concern one stiff periodic benchmark with ten paired seeds, a finite-difference reference, and 50 time slices withheld from labeled training. The favorable clipping result also reflects reference saturation at the upper bound.</p>
+      <div class="pdf-shell">
+        <div class="pdf-toolbar">
+          <div><p class="micro-label">Research manuscript · 7 pages</p><p>Jiankun Xu · Lingyun Chang</p></div>
+          <a class="download-link" href="../output/pdf/pinn-bound-mean-repair.pdf" target="_blank" rel="noopener">Open PDF <span aria-hidden="true">↗</span></a>
+        </div>
+        <object class="pdf-embed" data="../output/pdf/pinn-bound-mean-repair.pdf#view=FitH" type="application/pdf" aria-label="Embedded manuscript separating bound and mean repair steps, under review at ICMLC 2027">
+          <p>Your browser cannot display the PDF here. <a href="../output/pdf/pinn-bound-mean-repair.pdf">Open the bound-and-mean repair manuscript</a>.</p>
         </object>
       </div>
     </section>

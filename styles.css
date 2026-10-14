@@ -1131,6 +1131,98 @@ main {
   color: var(--muted);
 }
 
+.research-page .project-hero {
+  padding: 4.5rem 0;
+}
+
+.research-page .project-title h1 {
+  font-size: clamp(2.8rem, 4.2vw, 4.2rem);
+}
+
+.research-page .project-visual {
+  min-height: 440px;
+}
+
+.research-page .compact-abstract h2,
+.research-page .compact-section-heading h2,
+.research-page .document-heading h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+}
+
+.research-page .compact-abstract p {
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+}
+
+.research-page .compact-findings h3 {
+  font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+}
+
+.research-page .pdf-toolbar {
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+}
+
+.inline-math {
+  white-space: nowrap;
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.paper-links a {
+  color: var(--green);
+  text-underline-offset: 0.25em;
+}
+
+.paper-study {
+  scroll-margin-top: 2rem;
+}
+
+.paper-study .document-heading {
+  align-items: start;
+}
+
+.paper-study .document-heading .paper-status {
+  margin-top: 1rem;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+
+.paper-abstract {
+  max-width: 900px;
+  margin: 0 0 2.5rem auto;
+}
+
+.paper-abstract h3 {
+  margin: 0 0 1rem;
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.paper-abstract p,
+.paper-scope {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.paper-scope {
+  max-width: 900px;
+  margin: 0 0 2.5rem auto;
+  font-size: 1rem;
+}
+
 .project-nav {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
